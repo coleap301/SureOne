@@ -32,7 +32,7 @@
 
         /* --- STICKY MOBILE CTA BAR --- */
         .mobile-cta-bar {
-            display: none; /* Hidden on Desktop */
+            display: none; 
             position: fixed;
             top: 0;
             left: 0;
@@ -68,7 +68,6 @@
             font-weight: 900;
         }
 
-        /* Standardized Layout Containers */
         header, .section-solutions, .inquiry-wrapper, footer {
             padding: var(--standard-padding);
             box-sizing: border-box;
@@ -376,7 +375,7 @@
         @media (max-width: 768px) {
             :root { --standard-padding: 80px 20px; }
             .mobile-cta-bar { display: flex; }
-            body { padding-top: 60px; } /* Space for sticky bar */
+            body { padding-top: 60px; } 
             .footer-phone { font-size: 1.8rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .grid-item-border { border-right: none; border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
@@ -398,7 +397,7 @@
         <div class="mission-box">
             <h2>The SureOne Difference</h2>
             <p><strong>Your mess is our mission.</strong></p>
-            <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance and recovery services throughout <strong>Chicago and the greater Chicagoland area</strong>. Delivering reliable, high-standard solutions for every property mission.</p>
+            <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance and recovery services throughout Chicago and the greater Chicagoland area. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning—delivering reliable, high-standard solutions for every property mission.</p>
         </div>
         <a href="#quote" class="btn">Request a Quote</a>
     </header>
@@ -482,7 +481,6 @@
     </footer>
 
     <script>
-        // Phone formatting script
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
