@@ -7,8 +7,8 @@
     <title>SureOne Solutions, LLC | Professional Property Services Chicago</title>
     <meta name="description" content="SureOne Solutions, LLC: Premier property recovery and maintenance in Chicago & Chicagoland. Expert junk removal, full clean-outs, deep cleaning, and light demolition.">
 
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png?v=1">
+    <link rel="apple-touch-icon" href="favicon.png?v=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -212,7 +212,7 @@
         .form-group { display: flex; flex-direction: column; }
         label { font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-gray); margin-bottom: 12px; }
         
-        /* RESTORED DROPDOWN & INPUT STYLE */
+        /* SHARP TUXEDO DROPDOWN & INPUTS */
         input, select, textarea { 
             width: 100%; 
             padding: 16px; 
@@ -238,7 +238,8 @@
         }
 
         input:focus, select:focus, textarea:focus { outline: none; border-color: #fff; }
-        button[type="submit"] { width: 100%; padding: 22px; background: #fff; color: #000; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        button[type="submit"] { width: 100%; padding: 22px; background: #fff; color: #000; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        button[type="submit"]:hover { background: var(--brand-gray); }
 
         /* FOOTER */
         footer {
@@ -249,7 +250,12 @@
 
         .footer-brand-zone img { width: 100px; margin-bottom: 20px; }
         .trust-line { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 800; color: #000; }
+        
+        /* FOOTER CONTACT ZONE */
+        .footer-contact-zone { display: flex; flex-direction: column; gap: 10px; }
+        .contact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 800; }
         .footer-phone { text-decoration: none; color: #000; font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; }
+        .footer-email { text-decoration: none; color: #666; font-size: 1rem; font-weight: 500; }
 
         .footer-grid {
             max-width: 800px;
@@ -333,7 +339,13 @@
             <img src="shieldalt_logo.png" alt="SUREONE Solutions Shield">
             <div class="trust-line">Licensed &middot; Insured &middot; Professional</div>
         </div>
-        <a href="tel:7082708380" class="footer-phone">(708) 270-8380</a>
+
+        <div class="footer-contact-zone">
+            <span class="contact-label">Client Inquiries & Scheduling</span>
+            <a href="tel:7082708380" class="footer-phone">(708) 270-8380</a>
+            <a href="mailto:Snc@sureonesolutions.com" class="footer-email">Snc@sureonesolutions.com</a>
+        </div>
+
         <div class="footer-grid">
             <div class="grid-item grid-item-border">
                 <span class="grid-label">Portfolio & Updates</span>
@@ -356,6 +368,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({ once: true, duration: 900, offset: 120, easing: 'ease-out-quad' });
+        
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
