@@ -43,7 +43,7 @@
         }
 
         .mission-box {
-            max-width: 800px;
+            max-width: 850px;
             padding: 0 20px;
             text-align: center;
         }
@@ -57,10 +57,11 @@
         }
 
         .mission-box p {
-            font-size: 1.25rem;
-            line-height: 1.7;
+            font-size: 1.2rem;
+            line-height: 1.8;
             font-weight: 500;
             margin: 0 0 20px;
+            color: #333;
         }
 
         .btn {
@@ -168,7 +169,6 @@
             color: #fff;
         }
 
-        /* Improved Form Styling */
         input, select, textarea {
             width: 100%;
             padding: 14px;
@@ -178,10 +178,9 @@
             font-size: 1rem;
             box-sizing: border-box;
             border-radius: 0;
-            transition: border-color 0.3s ease, outline 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
-        /* Blue Focus removed for a professional Brand-Gray focus */
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--brand-gray);
@@ -205,21 +204,14 @@
         }
 
         footer {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             border-top: 1px solid #e0e0e0;
             background: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-        }
-
-        .footer-logo {
-            width: 110px;
-            height: auto;
-            filter: grayscale(100%) brightness(1.2); 
-            margin-top: 10px;
+            gap: 30px;
         }
 
         .portfolio-cta {
@@ -262,7 +254,6 @@
             margin: 0;
         }
 
-        /* Click-to-Call and Email Links */
         .contact-link {
             text-decoration: none;
             color: inherit;
@@ -279,24 +270,38 @@
             line-height: 1.5;
         }
 
+        .service-area-list {
+            max-width: 600px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
         .footer-credentials {
             font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: bold;
             letter-spacing: 3px;
             color: var(--primary-black);
+        }
+
+        .footer-logo {
+            width: 110px;
+            height: auto;
+            filter: grayscale(100%) brightness(1.2); 
             margin-top: 10px;
         }
 
         .copyright {
             font-size: 0.8rem;
             color: #888;
-            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
             header { gap: 40px; padding: 60px 20px; }
-            footer { gap: 25px; }
+            footer { gap: 30px; }
             .mission-box p { font-size: 1.1rem; }
             .footer-contact { font-size: 1.2rem; }
         }
@@ -307,9 +312,9 @@
     <header>
         <img src="shield_logo.png" alt="SureOne Solutions LLC Logo" class="main-logo">
         <div class="mission-box">
-            <h2>Our Mission</h2>
-            <p>At SureOne Solutions, <strong>your mess is our mission</strong>.</p>
-            <p>From <strong>junk removal</strong> and <strong>full clean-outs</strong> to <strong>general and deep cleaning</strong>, <strong>light demolition</strong>, and seasonal <strong>snow removal</strong>—we provide professional residential and commercial solutions to get your property back in order.</p>
+            <h2>The SureOne Difference</h2>
+            <p><strong>Your mess is our mission.</strong></p>
+            <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance and recovery services throughout <strong>Chicago and the greater Chicagoland area</strong>. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning—delivering reliable, high-standard solutions for every property mission.</p>
         </div>
         <a href="#quote" class="btn">Request a Quote</a>
     </header>
@@ -323,7 +328,7 @@
                 <div class="service-item"><h3>General and Deep Cleaning</h3><p>From routine upkeep to intensive move-in and move-out deep cleans, we keep your space spotless.</p></div>
                 <div class="service-item"><h3>Light Demolition</h3><p>Safe teardowns of small structures and site cleanup.</p></div>
                 <div class="service-item"><h3>Light Hauling</h3><p>Reliable transport for equipment, materials, or small loads.</p></div>
-                <div class="service-item"><h3>Snow Removal</h3><p>Winter maintenance for driveways and commercial lots.</p></div>
+                <div class="service-item"><h3>Snow Removal</h3><p>Professional winter maintenance for driveways and commercial lots.</p></div>
             </div>
         </div>
     </section>
@@ -365,22 +370,27 @@
             <a href="https://facebook.com/YOURPAGE" target="_blank" title="Facebook Portfolio"><i class="fab fa-facebook"></i></a>
             <a href="https://instagram.com/YOURPAGE" target="_blank" title="Instagram Portfolio"><i class="fab fa-instagram"></i></a>
         </div>
+        
         <div class="footer-contact-info">
             <p class="footer-contact">
                 <a href="tel:7082708380" class="contact-link">Call or Text (708) 270-8380</a>
             </p>
             <p class="footer-sub">
                 <a href="mailto:Snc@sureonesolutions.com" class="contact-link">Snc@sureonesolutions.com</a><br>
-                Residential & Commercial Jobs
+                Residential & Commercial Solutions
             </p>
         </div>
+
+        <div class="service-area-list">
+            <strong>Serving Chicagoland:</strong> Chicago &middot; North Shore &middot; Western Suburbs &middot; South Suburbs &middot; Northwest Suburbs
+        </div>
+
         <div class="footer-credentials">Licensed &middot; Insured &middot; Professional</div>
         <img src="shieldalt_logo.png" alt="SUREONE Solutions Shield" class="footer-logo">
         <div><p class="copyright">&copy; 2026 SureOne Solutions, LLC. All Rights Reserved.</p></div>
     </footer>
 
     <script>
-        // Phone number auto-formatting
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
