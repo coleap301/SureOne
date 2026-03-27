@@ -6,17 +6,17 @@
     
     <title>SureOne Solutions, LLC | Professional Property Services Chicago</title>
     <meta name="description" content="SureOne Solutions, LLC: Premier property recovery and maintenance in Chicago & Chicagoland. Expert junk removal, full clean-outs, deep cleaning, and light demolition.">
-    <meta name="keywords" content="Junk Removal Chicago, Property Clean-outs, Professional Cleaning Chicago, Light Demolition, Chicagoland Suburbs, SureOne Solutions">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-black: #1a1a1a;
-            --section-gray: #333333; 
-            --card-gray: #222222;    
-            --medium-gray: #444444; 
-            --brand-gray: #a3a3a3; 
+            --primary-black: #000000;
+            --section-gray: #1a1a1a; 
+            --card-black: #000000;    
+            --medium-gray: #333333;   
+            --brand-gray: #a3a3a3;
+            --standard-padding: 120px 20px;
         }
 
         body {
@@ -28,51 +28,53 @@
             scroll-behavior: smooth;
         }
 
-        header {
-            background: #fff;
-            color: var(--primary-black);
-            padding: 80px 20px;
-            text-align: center;
+        /* Centering the overall section layouts */
+        header, .section-solutions, .inquiry-wrapper, footer {
+            padding: var(--standard-padding);
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; 
             justify-content: center;
-            gap: 50px;
-            min-height: 70vh;
+            text-align: center;
+        }
+
+        header {
+            background: #fff;
+            gap: 60px;
+            min-height: 85vh;
         }
 
         header .main-logo {
-            width: 250px;
+            width: 280px;
             height: auto;
             max-width: 90%;
         }
 
         .mission-box {
             max-width: 850px;
-            padding: 0 20px;
-            text-align: center;
         }
 
         .mission-box h2 {
             text-transform: uppercase;
             font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
             color: var(--brand-gray);
         }
 
         .mission-box p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 1.8;
             font-weight: 500;
-            margin: 0 0 20px;
+            margin: 0 0 25px;
             color: #333;
         }
 
         .btn {
             background: var(--primary-black);
             color: #fff;
-            padding: 18px 45px;
+            padding: 20px 50px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 2px;
@@ -80,7 +82,8 @@
             transition: 0.3s;
             border: 2px solid var(--primary-black);
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
@@ -91,43 +94,44 @@
         .section-solutions {
             background: var(--section-gray);
             color: #fff;
-            padding: 100px 20px;
         }
 
         .content-container {
+            width: 100%;
             max-width: 1100px;
-            margin: 0 auto;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
             font-size: 2.2rem;
             text-transform: uppercase;
-            margin-bottom: 10px;
-            display: inline-block;
-            padding-bottom: 5px;
+            letter-spacing: 2px;
+            margin: 0;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .service-item {
             border: 1px solid var(--medium-gray);
-            padding: 40px;
-            background: var(--card-gray); 
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            padding: 50px 30px;
+            background: var(--card-black); 
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-item:hover {
-            transform: translateY(-5px);
-            border-color: #fff;
+            transform: translateY(-8px);
+            border-color: #ffffff;
         }
 
         .service-item h3 {
@@ -146,62 +150,79 @@
             margin: 0;
         }
 
+        /* RESTORED DARK FORM SECTION - LEFT ALIGNED FIELDS */
         .inquiry-wrapper {
             background: #000;
-            padding: 100px 20px;
             color: #fff;
         }
 
         form {
+            width: 100%;
             max-width: 600px;
-            margin: 0 auto;
-            background: #111;
-            padding: 40px;
+            background: #000;
+            padding: 60px;
             border: 1px solid #333;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            text-align: left; /* Aligns labels and text left */
         }
 
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            font-size: 0.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            color: #fff;
+            letter-spacing: 1.5px;
+            color: var(--brand-gray);
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             border: 1px solid #444;
-            background: var(--card-gray); 
+            background: #111;
             color: #fff;
             font-size: 1rem;
             box-sizing: border-box;
             border-radius: 0;
+            text-align: left; /* Back to professional left-alignment */
             transition: border-color 0.3s ease;
+        }
+
+        /* For the dropdown menu arrow/alignment */
+        select {
+            text-align-last: left;
+            appearance: none; /* Removes default arrow to keep it clean */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 0.65rem auto;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--brand-gray);
+            border-color: #fff;
         }
 
         button[type="submit"] {
             width: 100%;
-            padding: 20px;
+            padding: 22px;
             background: #fff;
-            color: var(--primary-black);
+            color: #000;
             border: none;
-            font-weight: bold;
+            font-weight: 900;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: 0.3s;
+            margin-top: 10px;
         }
 
         button[type="submit"]:hover {
@@ -209,37 +230,28 @@
         }
 
         footer {
-            padding: 80px 20px;
-            text-align: center;
-            border-top: 1px solid #e0e0e0;
             background: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+            border-top: 1px solid #e0e0e0;
+            gap: 40px;
         }
 
         .portfolio-cta {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary-black);
-            margin-bottom: 5px;
+            letter-spacing: 2px;
+            margin: 0;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 10px;
+            gap: 35px;
         }
 
         .social-links a {
             color: var(--primary-black);
-            text-decoration: none;
-            font-size: 2rem;
-            transition: transform 0.2s ease, color 0.2s ease;
+            font-size: 2.2rem;
+            transition: 0.2s ease;
         }
 
         .social-links a:hover {
@@ -248,43 +260,37 @@
         }
 
         .footer-contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            text-align: center;
         }
 
         .footer-contact-label {
             font-size: 0.75rem; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
-            display: block; 
-            margin-bottom: 8px; 
             color: #888; 
             font-weight: 800;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .contact-link {
             text-decoration: none;
             color: inherit;
-            transition: color 0.2s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--brand-gray);
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
         }
 
         .footer-sub {
-            color: var(--brand-gray);
-            font-size: 1rem;
-            line-height: 1.5;
+            margin-top: 15px;
+            color: #555;
+            line-height: 1.6;
         }
 
         .service-area-list {
             max-width: 600px;
             font-size: 0.85rem;
-            color: #666;
-            line-height: 1.6;
-            margin: 10px 0;
+            color: #777;
             font-style: italic;
         }
 
@@ -292,26 +298,19 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: bold;
-            letter-spacing: 3px;
-            color: var(--primary-black);
+            letter-spacing: 4px;
+            color: #000;
         }
 
         .footer-logo {
-            width: 110px;
-            height: auto;
-            filter: grayscale(100%) brightness(1.2); 
-            margin-top: 10px;
-        }
-
-        .copyright {
-            font-size: 0.8rem;
-            color: #888;
+            width: 120px;
+            filter: grayscale(1);
         }
 
         @media (max-width: 768px) {
-            header { gap: 40px; padding: 60px 20px; }
-            footer { gap: 30px; }
-            .mission-box p { font-size: 1.1rem; }
+            :root { --standard-padding: 80px 20px; }
+            form { padding: 40px 20px; }
+            .contact-link { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -329,7 +328,7 @@
 
     <section class="section-solutions" id="services">
         <div class="content-container">
-            <div class="section-title"><h2>Expert Solutions</h2></div>
+            <div class="section-title"><h2>Primary Services</h2></div>
             <div class="services-grid">
                 <div class="service-item"><h3>Full Clean-outs</h3><p>Complete basement, garage, office, and estate clearing.</p></div>
                 <div class="service-item"><h3>Junk Removal</h3><p>Efficient removal of appliances, furniture, and debris.</p></div>
@@ -342,18 +341,18 @@
     </section>
 
     <div class="inquiry-wrapper" id="quote">
-        <div class="section-title"><h2>REQUEST A QUOTE</h2></div>
+        <div class="section-title"><h2>Request a Quote</h2></div>
         <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="name" placeholder="Enter your name" required>
             </div>
             <div class="form-group">
                 <label>Phone</label>
                 <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
             </div>
             <div class="form-group">
-                <label>Service</label>
+                <label>Service Type</label>
                 <select name="service" required>
                     <option value="" disabled selected>Select a Service</option>
                     <option value="Full Clean-out">Full Clean-out</option>
@@ -366,28 +365,24 @@
             </div>
             <div class="form-group">
                 <label>Job Details</label>
-                <textarea name="message" rows="4" placeholder="Describe project details..."></textarea>
+                <textarea name="message" rows="4" placeholder="Briefly describe your project needs..."></textarea>
             </div>
-            <button type="submit">Submit Request</button>
+            <button type="submit">Send Message</button>
         </form>
     </div>
 
     <footer>
         <p class="portfolio-cta">Before & After Portfolio</p>
         <div class="social-links">
-            <a href="https://facebook.com/YOURPAGE" target="_blank" title="Facebook Portfolio"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com/YOURPAGE" target="_blank" title="Instagram Portfolio"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/YOURPAGE" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/YOURPAGE" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        
+
         <div class="footer-contact-info">
-            <div class="footer-contact">
-                <span class="footer-contact-label">Client Inquiries & Scheduling</span>
-                <a href="tel:7082708380" class="contact-link" style="font-size: 1.6rem; font-weight: bold; letter-spacing: 1px;">
-                    (708) 270-8380
-                </a>
-            </div>
+            <span class="footer-contact-label">Client Inquiries & Scheduling</span>
+            <a href="tel:7082708380" class="contact-link">(708) 270-8380</a>
             <p class="footer-sub">
-                <a href="mailto:Snc@sureonesolutions.com" class="contact-link">Snc@sureonesolutions.com</a><br>
+                <a href="mailto:Snc@sureonesolutions.com" style="color:inherit; text-decoration:none;">Snc@sureonesolutions.com</a><br>
                 Residential & Commercial Solutions
             </p>
         </div>
@@ -398,7 +393,7 @@
 
         <div class="footer-credentials">Licensed &middot; Insured &middot; Professional</div>
         <img src="shieldalt_logo.png" alt="SUREONE Solutions Shield" class="footer-logo">
-        <div><p class="copyright">&copy; 2026 SureOne Solutions, LLC. All Rights Reserved.</p></div>
+        <p style="font-size: 0.75rem; color: #aaa; margin: 0;">&copy; 2026 SureOne Solutions, LLC. All Rights Reserved.</p>
     </footer>
 
     <script>
