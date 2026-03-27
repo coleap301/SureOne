@@ -168,6 +168,7 @@
             color: #fff;
         }
 
+        /* Improved Form Styling */
         input, select, textarea {
             width: 100%;
             padding: 14px;
@@ -177,6 +178,13 @@
             font-size: 1rem;
             box-sizing: border-box;
             border-radius: 0;
+            transition: border-color 0.3s ease, outline 0.3s ease;
+        }
+
+        /* Blue Focus removed for a professional Brand-Gray focus */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--brand-gray);
         }
 
         button[type="submit"] {
@@ -214,10 +222,9 @@
             margin-top: 10px;
         }
 
-        /* Bold Portfolio CTA */
         .portfolio-cta {
             font-size: 1rem;
-            font-weight: 800; /* Extra bold for prominence */
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--primary-black);
@@ -253,6 +260,17 @@
             font-size: 1.4rem;
             font-weight: bold;
             margin: 0;
+        }
+
+        /* Click-to-Call and Email Links */
+        .contact-link {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--brand-gray);
         }
 
         .footer-sub {
@@ -312,7 +330,7 @@
 
     <div class="inquiry-wrapper" id="quote">
         <div class="section-title"><h2>REQUEST A QUOTE</h2></div>
-        <form action="#" method="POST">
+        <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Your Name" required>
@@ -325,12 +343,12 @@
                 <label>Service</label>
                 <select name="service" required>
                     <option value="" disabled selected>Select a Service</option>
-                    <option value="cleanout">Full Clean-out</option>
-                    <option value="junk">Junk Removal</option>
-                    <option value="cleaning">General and Deep Cleaning</option>
-                    <option value="demolition">Light Demolition</option>
-                    <option value="hauling">Light Hauling</option>
-                    <option value="snow">Snow Removal</option>
+                    <option value="Full Clean-out">Full Clean-out</option>
+                    <option value="Junk Removal">Junk Removal</option>
+                    <option value="Cleaning">General and Deep Cleaning</option>
+                    <option value="Light Demolition">Light Demolition</option>
+                    <option value="Light Hauling">Light Hauling</option>
+                    <option value="Snow Removal">Snow Removal</option>
                 </select>
             </div>
             <div class="form-group">
@@ -344,12 +362,17 @@
     <footer>
         <p class="portfolio-cta">Before & After Portfolio</p>
         <div class="social-links">
-            <a href="https://facebook.com" target="_blank" title="Facebook Portfolio"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank" title="Instagram Portfolio"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/YOURPAGE" target="_blank" title="Facebook Portfolio"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/YOURPAGE" target="_blank" title="Instagram Portfolio"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="footer-contact-info">
-            <p class="footer-contact">Call or Text (708) 270-8380</p>
-            <p class="footer-sub">Snc@sureonesolutions.com<br>Residential & Commercial Jobs</p>
+            <p class="footer-contact">
+                <a href="tel:7082708380" class="contact-link">Call or Text (708) 270-8380</a>
+            </p>
+            <p class="footer-sub">
+                <a href="mailto:Snc@sureonesolutions.com" class="contact-link">Snc@sureonesolutions.com</a><br>
+                Residential & Commercial Jobs
+            </p>
         </div>
         <div class="footer-credentials">Licensed &middot; Insured &middot; Professional</div>
         <img src="shieldalt_logo.png" alt="SUREONE Solutions Shield" class="footer-logo">
@@ -357,6 +380,7 @@
     </footer>
 
     <script>
+        // Phone number auto-formatting
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
