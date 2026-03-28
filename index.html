@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SureOne Solutions, LLC | Chicago Property Services</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --silhouette-gray: #4a4a4a;
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+            --apple-ease: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--pure-white);
+            color: var(--pure-black);
+            overflow-x: hidden;
+            text-align: center; 
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s var(--apple-ease), transform 1s var(--apple-ease);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NAVIGATION --- */
+        .mobile-top-bar {
+            display: flex;
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: 60px;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .mobile-top-bar a {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            color: var(--pure-white); text-decoration: none; text-transform: uppercase;
+            font-size: 0.75rem; font-weight: 900; letter-spacing: 1.5px;
+        }
+
+        /* --- HERO --- */
+        .hero-viewport {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;     
+            padding: 100px 20px;
+            position: relative;
+            background: var(--pure-white) url('skyline.png') no-repeat center bottom;
+            background-size: contain;
+        }
+
+        .main-logo { 
+            width: 300px; 
+            max-width: 80%; 
+            margin-bottom: 40px; 
+            z-index: 5;
+            border-radius: 16px; /* Added 16px radius to header logo */
+        }
+        
+        .mission-content { 
+            max-width: 800px; 
+            width: 90%; 
+            margin: 0 auto; 
+            position: relative; 
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px 25px; 
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            border-radius: 16px;
+        }
+
+        .mission-content h2 { 
+            text-transform: uppercase; 
+            letter-spacing: 6px; 
+            font-size: 1.1rem; 
+            font-weight: 900; 
+            margin-bottom: 25px; 
+        }
+        .mission-content p { 
+            font-size: 1.2rem; 
+            line-height: 1.6; 
+            font-weight: 700; 
+            color: #000; 
+            margin: 0; 
+        }
+
+        /* --- SERVICES --- */
+        .section-solutions { 
+            background-color: var(--silhouette-gray);
+            color: var(--pure-white);
+            padding: 100px 20px;
+        }
+        .sync-title { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 8px; font-weight: 900; margin-bottom: 60px; }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+            max-width: 1240px; margin: 0 auto;
+        }
+        .service-card { 
+            background: #111; 
+            padding: 50px 25px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 16px;
+            transition: transform 0.4s var(--apple-ease);
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .service-card:hover { transform: translateY(-10px); background: #1a1a1a; border-color: #fff; }
+        .service-card h3 { text-transform: uppercase; font-size: 1rem; margin-bottom: 12px; font-weight: 800; letter-spacing: 2px; }
+        .service-card p { font-size: 0.85rem; color: #888; line-height: 1.5; margin: 0; }
+
+        /* --- QUOTE FORM --- */
+        .section-quote { background-color: var(--pure-black); color: var(--pure-white); padding: 100px 25px; }
+        .form-container { max-width: 900px; margin: 0 auto; text-align: left; }
+        
+        .form-grid { 
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .input-group label, .checkbox-section-title { 
+            font-weight: 800; text-transform: uppercase; font-size: 0.7rem; 
+            letter-spacing: 2px; margin-bottom: 12px; display: block; color: #777; 
+        }
+        
+        .input-group input, .input-group textarea { 
+            padding: 18px; 
+            border: 1px solid #333; 
+            background: #111; 
+            color: #fff; width: 100%; box-sizing: border-box; 
+            font-family: inherit; font-size: 0.95rem; 
+            border-radius: 16px;
+        }
+
+        .checkbox-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+            margin-top: 5px; 
+        }
+        .checkbox-item input { display: none; }
+        .checkbox-tile { 
+            background: #111; border: 1px solid #333; padding: 20px 10px; 
+            font-size: 0.75rem; font-weight: 800; text-transform: uppercase; 
+            text-align: center; color: #555; cursor: pointer; transition: 0.3s; 
+            border-radius: 16px;
+        }
+        .checkbox-item input:checked + .checkbox-tile { background: var(--silhouette-gray); color: #fff; border-color: #666; }
+
+        .submit-container { display: flex; justify-content: center; width: 100%; }
+        .submit-btn { 
+            background: var(--silhouette-gray); color: #fff; height: 60px; 
+            width: 280px; border: none; font-weight: 900; text-transform: uppercase; 
+            cursor: pointer; letter-spacing: 3px; margin-top: 20px; 
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem;
+            border-radius: 16px;
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            background: var(--pure-white); 
+            padding: 100px 0; 
+            text-align: center; 
+            border-top: 1px solid #f0f0f0; 
+        }
+        .footer-shield { width: 90px; margin-bottom: 35px; }
+        .footer-tagline { display: block; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; font-size: 0.8rem; color: #000; margin-bottom: 60px; }
+        
+        .footer-header { display: block; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; font-size: 0.8rem; color: #000; margin-bottom: 15px; }
+        .footer-phone { text-decoration: none; color: #000; display: block; margin-bottom: 10px; font-size: 2.4rem; font-weight: 900; letter-spacing: 3px; }
+        .footer-email { text-decoration: none; color: #000; font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 80px; }
+
+        .footer-info-grid { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            border-top: 2px solid #000; 
+            border-bottom: 2px solid #000; 
+            display: flex; 
+            align-items: stretch; 
+            justify-content: center; 
+        }
+        .footer-info-col { flex: 1; padding: 60px 30px; text-align: center; }
+        .footer-info-col span { 
+            display: block; font-weight: 900; text-transform: uppercase; font-size: 0.85rem; 
+            color: #000; letter-spacing: 4px; margin-bottom: 30px;
+        }
+        .footer-social-links a { color: #000; font-size: 2.2rem; margin: 0 25px; display: inline-block; }
+        
+        .footer-floating-divider { 
+            width: 2px; 
+            border-left: 2px dotted #000; 
+            background: none; 
+            align-self: stretch; 
+        }
+        .footer-service-list { font-size: 1.1rem; color: #000; line-height: 2.4; font-weight: 700; margin: 0; }
+
+        /* --- MOBILE MEDIA QUERY --- */
+        @media (max-width: 768px) {
+            .hero-viewport { background-size: 180%; padding-top: 120px; }
+            .sync-title { font-size: 1.7rem; letter-spacing: 4px; margin-bottom: 40px; }
+            .mission-content { width: 95%; padding: 35px 20px; }
+            .services-grid { grid-template-columns: 1fr; gap: 15px; }
+            
+            .form-row { grid-template-columns: 1fr; gap: 20px; }
+            .checkbox-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            
+            .submit-btn { width: 220px; margin-left: auto; margin-right: auto; }
+
+            .footer-phone { font-size: 1.7rem; }
+            
+            .footer-info-grid { 
+                flex-direction: column; 
+                width: 100%; 
+                border-bottom: 2px solid #000;
+                min-height: 600px; 
+                justify-content: space-evenly; 
+            }
+            
+            .footer-floating-divider { 
+                width: 100%; 
+                height: 2px; 
+                border: none;
+                background: #000; 
+            }
+            .footer-info-col { 
+                width: 100%; 
+                padding: 30px 20px; 
+                box-sizing: border-box;
+                flex: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-top-bar">
+        <a href="tel:7082708380"><i class="fas fa-phone-alt"></i> Call</a>
+        <a href="#quote" style="border-left: 1px solid #222;"><i class="fas fa-paper-plane"></i> Quote</a>
+    </div>
+
+    <header class="hero-viewport">
+        <img src="shield_logo.png" alt="SureOne Solutions" class="main-logo reveal">
+        <div class="mission-content reveal">
+            <h2>The SureOne Difference</h2>
+            <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance throughout Chicago and the greater Chicagoland area. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning.</p>
+        </div>
+    </header>
+
+    <section class="section-solutions">
+        <h2 class="sync-title reveal">Expert Services</h2>
+        <div class="services-grid">
+            <div class="service-card reveal" onclick="selectService('Full Clean-out')"><h3>Full Clean-outs</h3><p>Complete basement, garage, office, and estate clearing.</p></div>
+            <div class="service-card reveal" onclick="selectService('Junk Removal')"><h3>Junk Removal</h3><p>Efficient removal of appliances, furniture, and debris.</p></div>
+            <div class="service-card reveal" onclick="selectService('Deep Cleaning')"><h3>Deep Cleaning</h3><p>Intensive move-in/out and property restoration cleaning.</p></div>
+            <div class="service-card reveal" onclick="selectService('Light Demolition')"><h3>Light Demolition</h3><p>Safe teardowns of small structures and site cleanup.</p></div>
+            <div class="service-card reveal" onclick="selectService('Light Hauling')"><h3>Light Hauling</h3><p>Reliable transport for equipment, materials, or small loads.</p></div>
+            <div class="service-card reveal" onclick="selectService('Snow Removal')"><h3>Snow Removal</h3><p>Professional winter maintenance for driveways and lots.</p></div>
+        </div>
+    </section>
+
+    <section id="quote" class="section-quote">
+        <div class="form-container reveal">
+            <h2 class="sync-title" style="color:white; text-align:center;">Request a Quote</h2>
+            <div class="form-grid">
+                
+                <div class="form-row">
+                    <div class="input-group"><label>First Name</label><input type="text" placeholder="First Name"></div>
+                    <div class="input-group"><label>Last Name</label><input type="text" placeholder="Last Name"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group"><label>Phone Number</label><input type="tel" placeholder="(000) 000-0000"></div>
+                    <div class="input-group"><label>Email Address</label><input type="email" placeholder="Email Address"></div>
+                </div>
+
+                <div class="input-group">
+                    <span class="checkbox-section-title">Service Type</span>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item"><input type="checkbox" id="check-Junk Removal"><div class="checkbox-tile">Junk Removal</div></label>
+                        <label class="checkbox-item"><input type="checkbox" id="check-Deep Cleaning"><div class="checkbox-tile">Deep Cleaning</div></label>
+                        <label class="checkbox-item"><input type="checkbox" id="check-Full Clean-out"><div class="checkbox-tile">Full Clean-out</div></label>
+                        <label class="checkbox-item"><input type="checkbox" id="check-Light Hauling"><div class="checkbox-tile">Light Hauling</div></label>
+                        <label class="checkbox-item"><input type="checkbox" id="check-Snow Removal"><div class="checkbox-tile">Snow Removal</div></label>
+                        <label class="checkbox-item"><input type="checkbox" id="check-Light Demolition"><div class="checkbox-tile">Light Demolition</div></label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Project Details</label>
+                    <textarea style="min-height: 200px;" placeholder="Describe your project..."></textarea>
+                </div>
+
+                <div class="submit-container">
+                    <button class="submit-btn">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="shieldalt_logo.png" class="footer-shield" alt="S1 Logo">
+        <span class="footer-tagline">Licensed • Insured • Professional</span>
+        <span class="footer-header">Client Inquiries & Scheduling</span>
+        <a href="tel:7082708380" class="footer-phone">(708) 270-8380</a>
+        <a href="mailto:Snc@sureonesolutions.com" class="footer-email">Snc@sureonesolutions.com</a>
+        
+        <div class="footer-info-grid reveal">
+            <div class="footer-info-col">
+                <span>Portfolio & Updates</span>
+                <div class="footer-social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-floating-divider"></div>
+            <div class="footer-info-col">
+                <span>Service Area</span>
+                <p class="footer-service-list">
+                    Chicago <i>•</i> North Shore <i>•</i> Western Suburbs<br>
+                    South Suburbs <i>•</i> Northwest Suburbs
+                </p>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; font-weight: 700; color: #000; margin-top: 80px;">© 2026 SureOne Solutions, LLC. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => { observer.observe(el); });
+
+        function selectService(name) {
+            const cb = document.getElementById('check-' + name);
+            if (cb) {
+                cb.checked = true;
+                document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
