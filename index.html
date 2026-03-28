@@ -2,379 +2,277 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SureOne Solutions, LLC | Chicago Property Services</title>
     
-    <title>SureOne Solutions, LLC | Professional Property Services Chicago</title>
-    <meta name="description" content="SureOne Solutions, LLC: Premier property recovery and maintenance in Chicago & Chicagoland. Expert junk removal, full clean-outs, deep cleaning, and light demolition.">
-
-    <link rel="icon" type="image/png" href="favicon.png?v=1">
-    <link rel="apple-touch-icon" href="favicon.png?v=1">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     
     <style>
         :root {
             --primary-black: #000000;
-            --section-gray: #1a1a1a; 
-            --card-black: #000000;    
-            --medium-gray: #333333;   
-            --brand-gray: #a3a3a3;
-            --standard-padding: 120px 20px;
+            --section-gray: #0a0a0a; 
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--primary-black);
+            font-family: 'Inter', sans-serif;
+            margin: 0; padding: 0;
             background-color: #ffffff;
-            scroll-behavior: smooth;
+            color: #000;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            text-align: center; 
         }
 
-        /* APPLE-STYLE GLASS CTA BAR */
-        .mobile-cta-bar {
-            display: none; 
+        /* --- MOBILE TOP BAR --- */
+        .mobile-top-bar {
+            display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.85); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            color: #fff;
-            padding: 15px 20px;
-            z-index: 9999;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
+            top: 0; left: 0; width: 100%;
+            height: 60px;
+            background: #000;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
         }
-
-        .mobile-cta-bar a {
+        .mobile-top-bar a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #fff;
             text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
             font-weight: 800;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cta-btn-mini {
-            background: #fff;
-            color: #000 !important;
-            padding: 8px 15px;
-            border-radius: 2px;
-            font-size: 0.75rem !important;
-            font-weight: 900;
-        }
-
-        header, .section-solutions, .inquiry-wrapper, footer {
-            padding: var(--standard-padding);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* HEADER */
-        header {
-            background: #fff;
-            gap: 60px;
-            min-height: 85vh;
-        }
-
-        header .main-logo {
-            width: 280px;
-            height: auto;
-            max-width: 90%;
-        }
-
-        .mission-box {
-            max-width: 850px;
-        }
-
-        .mission-box h2 {
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            color: var(--brand-gray);
-        }
-
-        .mission-box p {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            font-weight: 500;
-            margin: 0 0 25px;
-            color: #333;
-        }
-
-        .btn {
-            background: var(--primary-black);
-            color: #fff;
-            padding: 20px 50px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 2px;
-            display: inline-block;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--primary-black);
-            text-transform: uppercase;
-            font-size: 0.95rem;
             letter-spacing: 1px;
         }
+        .mobile-top-bar a:first-child { border-right: 1px solid #333; }
+        .mobile-top-bar i { margin-right: 8px; font-size: 0.9rem; }
 
-        .btn:hover {
-            background: #fff;
-            color: var(--primary-black);
-            transform: scale(1.05);
+        /* --- HERO --- */
+        .hero-viewport {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;     
+            padding: 40px 20px; position: relative;
         }
-
-        /* SOLUTIONS SECTION */
-        .section-solutions {
-            background: var(--section-gray);
-            color: #fff;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0 0 60px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .service-item {
-            border: 1px solid var(--medium-gray);
-            padding: 50px 30px;
-            background: var(--card-black); 
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #ffffff;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .service-item h3 {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .service-item p {
-            color: #bbb;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* FORM */
-        .inquiry-wrapper {
-            background: #000;
-            color: #fff;
-        }
-
-        form {
-            width: 100%;
-            max-width: 600px;
-            background: #000;
-            padding: 60px;
-            border: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            text-align: left; 
-        }
-
-        .form-group { display: flex; flex-direction: column; }
-        label { font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-gray); margin-bottom: 12px; }
+        .main-logo { width: 320px; max-width: 85%; margin-bottom: 20px; z-index: 20; }
         
-        /* SHARP TUXEDO DROPDOWN & INPUTS */
-        input, select, textarea { 
+        .mission-overlay-container { 
+            position: relative; 
+            max-width: 1000px; 
             width: 100%; 
-            padding: 16px; 
-            border: 1px solid #444; 
-            background: #111; 
-            color: #fff; 
-            font-size: 1rem; 
-            border-radius: 0; 
-            box-sizing: border-box; 
-            text-align: left;
-            display: block;
+            padding: 60px 0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .mission-content { position: relative; z-index: 10; width: 100%; }
+        .mission-content h2 { text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: 900; margin-bottom: 25px; color: #000; }
+        .mission-content p { font-size: 1.3rem; line-height: 1.8; font-weight: 700; margin-bottom: 20px; color: #000; }
+
+        /* DESKTOP SKYLINE (Unchanged) */
+        .skyline-layer {
+            position: absolute; 
+            top: 75%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%; 
+            z-index: 1; 
+            opacity: 0.12; 
+            pointer-events: none;
+        }
+        .skyline-layer img { width: 100%; height: auto; display: block; }
+
+        /* BUTTONS */
+        .btn, .submit-btn {
+            background: #000; color: #fff;
+            height: 65px; width: 280px; max-width: 100%;
+            text-decoration: none; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 2px;
+            display: flex; align-items: center; justify-content: center;
+            border: none; cursor: pointer; margin: 20px auto 0;
+            font-family: inherit; font-size: 0.9rem;
+        }
+        .submit-btn { background: #fff; color: #000; }
+
+        /* --- UNIFIED FONT SIZE CONTROL --- */
+        .sync-title {
+            font-size: 2rem !important;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* --- SERVICES --- */
+        .section-solutions { background: var(--section-gray); color: #fff; padding: 100px 20px; }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;
+            max-width: 1200px; margin: 60px auto 0;
+        }
+        .service-card { border: 1px solid #333; padding: 50px 30px; background: #000; }
+        .service-card h3 { text-transform: uppercase; font-size: 1rem; margin-bottom: 15px; }
+        .service-card p { color: #888; font-size: 0.9rem; }
+
+        /* --- FORM SECTION --- */
+        .section-quote { padding: 100px 20px; background: #000; color: #fff; }
+        .form-container { max-width: 850px; margin: 0 auto; text-align: left; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         
-        select {
-            text-align-last: left;
-            cursor: pointer;
-            appearance: none; 
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-            background-repeat: no-repeat;
-            background-position: right 1.2rem center;
-            background-size: 0.7rem auto;
-            padding-right: 40px;
+        .input-group label { font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px; margin-bottom: 12px; display: block; }
+        .input-group input, .input-group textarea { 
+            padding: 20px; border: 1px solid #444; background: #111; color: #fff; 
+            width: 100%; box-sizing: border-box; font-family: inherit; font-size: 1rem;
         }
+        .full-width { grid-column: span 2; }
 
-        input:focus, select:focus, textarea:focus { outline: none; border-color: #fff; }
-        button[type="submit"] { width: 100%; padding: 22px; background: #fff; color: #000; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        button[type="submit"]:hover { background: var(--brand-gray); }
-
-        /* FOOTER */
-        footer {
-            background: #fff;
-            border-top: 1px solid #eee;
-            gap: 50px;
+        .checkbox-group {
+            grid-column: span 2; display: grid; grid-template-columns: repeat(3, 24px 1fr); 
+            align-items: center; gap: 20px 10px; margin: 20px 0; padding: 40px;
+            background: #111; border: 1px solid #333;
         }
+        .checkbox-group label.header-label { grid-column: 1 / -1; color: #fff; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+        .checkbox-group span { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #ccc; }
 
-        .footer-brand-zone img { width: 100px; margin-bottom: 20px; }
-        .trust-line { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 800; color: #000; }
-        
-        /* FOOTER CONTACT ZONE */
-        .footer-contact-zone { display: flex; flex-direction: column; gap: 10px; }
-        .contact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 800; }
-        .footer-phone { text-decoration: none; color: #000; font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; }
-        .footer-email { text-decoration: none; color: #666; font-size: 1rem; font-weight: 500; }
+        .submit-container { grid-column: span 2; display: flex; justify-content: center; width: 100%; }
 
-        .footer-grid {
-            max-width: 800px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            border-top: 1px solid #f0f0f0;
-            border-bottom: 1px solid #f0f0f0;
-            padding: 40px 0;
+        /* --- FOOTER --- */
+        footer { background: #fff; padding: 100px 20px 60px; text-align: center; }
+        .footer-shield { width: 100px; margin-bottom: 25px; }
+        .footer-tagline { display: block; text-transform: uppercase; letter-spacing: 5px; font-weight: 800; font-size: 0.8rem; color: #000; margin-bottom: 60px; }
+        .footer-inquiry-label { display: block; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; font-size: 0.85rem; color: #999; margin-bottom: 15px; }
+        .footer-phone { text-decoration: none; color: #000; display: block; margin-bottom: 10px; }
+        .footer-email { text-decoration: none; color: #666; font-size: 1.05rem; font-weight: 500; display: block; margin-bottom: 80px; }
+
+        .footer-info-grid {
+            max-width: 1000px; margin: 0 auto; border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+            display: flex; align-items: center; justify-content: center;
         }
+        .footer-info-col { flex: 1; padding: 50px 20px; }
+        .footer-info-col span { display: block; font-weight: 800; text-transform: uppercase; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-social-links a { color: #000; font-size: 1.8rem; margin: 0 10px; }
+        .footer-floating-divider { width: 1px; background: #eee; height: 80px; }
+        .footer-service-list { font-size: 0.95rem; color: #000; line-height: 1.6; margin: 0; }
+        .footer-copyright { font-size: 0.7rem; color: #ccc; margin-top: 60px; letter-spacing: 1px; }
 
-        .grid-item-border { border-right: 1px solid #f0f0f0; }
-        .grid-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #999; font-weight: 800; margin-bottom: 15px; display: block; }
-        .grid-text { font-size: 0.85rem; color: #444; line-height: 1.6; margin: 0; font-style: italic; }
-        .footer-socials a { color: #000; font-size: 1.5rem; margin: 0 10px; transition: 0.2s; }
-
+        /* --- MOBILE IMPROVEMENTS --- */
         @media (max-width: 768px) {
-            :root { --standard-padding: 80px 20px; }
-            .mobile-cta-bar { display: flex; }
-            body { padding-top: 60px; } 
-            .footer-phone { font-size: 1.8rem; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .grid-item-border { border-right: none; border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
-            form { padding: 40px 20px; }
+            .mobile-top-bar { display: flex; }
+            body { padding-top: 60px; }
+            
+            /* Better Mobile Scaling for Hero Image */
+            .skyline-layer {
+                width: 280%; /* Scale up so it fills the background width-wise on tall screens */
+                top: 85%;    /* Move it down slightly to anchor the bottom of the section */
+                opacity: 0.15;
+            }
+
+            .sync-title { font-size: 1.6rem !important; } 
+            .services-grid { grid-template-columns: 1fr; }
+            .form-grid { display: flex; flex-direction: column; gap: 25px; }
+            .input-group.full-width { width: 100%; }
+            .submit-container { display: block; text-align: center; }
+            .submit-btn { width: 280px; height: 65px; margin: 10px auto 0; }
+            .checkbox-group { grid-template-columns: 24px 1fr; padding: 25px; }
+            .footer-info-grid { flex-direction: column; }
+            .footer-floating-divider { display: none; }
+            .footer-info-col { padding: 40px 10px; border-bottom: 1px solid #eee; width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mobile-cta-bar">
-        <a href="tel:7082708380"><i class="fas fa-phone"></i> (708) 270-8380</a>
-        <a href="#quote" class="cta-btn-mini">Request Quote</a>
+    <div class="mobile-top-bar">
+        <a href="tel:7082708380"><i class="fas fa-phone"></i> Call Now</a>
+        <a href="#quote"><i class="fas fa-envelope"></i> Get Quote</a>
     </div>
 
-    <header>
-        <img src="shield_logo.png" alt="SureOne Solutions Logo" class="main-logo" data-aos="zoom-in" data-aos-duration="1200">
-        <div class="mission-box" data-aos="fade-up" data-aos-duration="1000">
-            <h2>The SureOne Difference</h2>
-            <p><strong>Your mess is our mission.</strong></p>
-            <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance and recovery services throughout Chicago and the greater Chicagoland area. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning—delivering reliable, high-standard solutions for every property mission.</p>
+    <header class="hero-viewport">
+        <img src="shield_logo.png" alt="SureOne Solutions" class="main-logo">
+        <div class="mission-overlay-container">
+            <div class="mission-content">
+                <h2>The SureOne Difference</h2>
+                <p><strong>Your mess is our mission.</strong></p>
+                <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance throughout Chicago and the greater Chicagoland area. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning—delivering reliable, high-standard solutions for every property mission.</p>
+            </div>
+            <div class="skyline-layer"><img src="image_0.png" alt="Chicago Skyline Overlay"></div>
         </div>
-        <a href="#quote" class="btn" data-aos="fade-up" data-aos-delay="200">Request a Quote</a>
+        <a href="#quote" class="btn">Request a Quote</a>
     </header>
 
-    <section class="section-solutions" id="services">
-        <div class="section-title" data-aos="fade-up"><h2>Primary Services</h2></div>
+    <section class="section-solutions">
+        <h2 class="sync-title" style="margin-bottom: 40px;">Expert Services</h2>
         <div class="services-grid">
-            <div class="service-item" data-aos="fade-up" data-aos-delay="100"><h3>Full Clean-outs</h3><p>Complete basement, garage, office, and estate clearing.</p></div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="200"><h3>Junk Removal</h3><p>Efficient removal of appliances, furniture, and debris.</p></div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="300"><h3>General and Deep Cleaning</h3><p>From routine upkeep to intensive move-in and move-out deep cleans.</p></div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="400"><h3>Light Demolition</h3><p>Safe teardowns of small structures and site cleanup.</p></div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="500"><h3>Light Hauling</h3><p>Reliable transport for equipment, materials, or small loads.</p></div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="600"><h3>Snow Removal</h3><p>Professional winter maintenance for driveways and commercial lots.</p></div>
+            <div class="service-card"><h3>Full Clean-outs</h3><p>Complete basement, garage, office, and estate clearing.</p></div>
+            <div class="service-card"><h3>Junk Removal</h3><p>Efficient removal of appliances, furniture, and debris.</p></div>
+            <div class="service-card"><h3>Deep Cleaning</h3><p>Intensive move-in/out and property restoration cleaning.</p></div>
+            <div class="service-card"><h3>Light Demolition</h3><p>Safe teardowns of small structures and site cleanup.</p></div>
+            <div class="service-card"><h3>Light Hauling</h3><p>Reliable transport for equipment, materials, or small loads.</p></div>
+            <div class="service-card"><h3>Snow Removal</h3><p>Professional winter maintenance for driveways and lots.</p></div>
         </div>
     </section>
 
-    <div class="inquiry-wrapper" id="quote">
-        <div class="section-title" data-aos="fade-up"><h2>Request a Quote</h2></div>
-        <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST" data-aos="fade-up">
-            <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Enter your name" required></div>
-            <div class="form-group"><label>Phone</label><input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required></div>
-            <div class="form-group"><label>Service Type</label>
-                <select name="service" required>
-                    <option value="" disabled selected>Select a Service</option>
-                    <option value="Full Clean-out">Full Clean-out</option>
-                    <option value="Junk Removal">Junk Removal</option>
-                    <option value="Cleaning">General and Deep Cleaning</option>
-                    <option value="Light Demolition">Light Demolition</option>
-                    <option value="Light Hauling">Light Hauling</option>
-                    <option value="Snow Removal">Snow Removal</option>
-                </select>
-            </div>
-            <div class="form-group"><label>Job Details</label><textarea name="message" rows="4" placeholder="Briefly describe your project needs..."></textarea></div>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
+    <section id="quote" class="section-quote">
+        <div class="form-container">
+            <h2 class="sync-title" style="text-align:center; margin-bottom: 60px;">Request a Quote</h2>
+            <div class="form-grid">
+                <div class="input-group"><label>Full Name</label><input type="text" placeholder="Enter your full name"></div>
+                <div class="input-group"><label>Phone Number</label><input type="tel" placeholder="Enter contact number"></div>
+                <div class="input-group full-width"><label>Email Address</label><input type="email" placeholder="Enter email address"></div>
+                
+                <div class="checkbox-group">
+                    <label class="header-label">Services Required:</label>
+                    <input type="checkbox"><span>Junk Removal</span>
+                    <input type="checkbox"><span>Deep Cleaning</span>
+                    <input type="checkbox"><span>Full Clean-out</span>
+                    <input type="checkbox"><span>Light Hauling</span>
+                    <input type="checkbox"><span>Snow Removal</span>
+                    <input type="checkbox"><span>Light Demolition</span>
+                </div>
 
-    <footer>
-        <div class="footer-brand-zone">
-            <img src="shieldalt_logo.png" alt="SUREONE Solutions Shield">
-            <div class="trust-line">Licensed &middot; Insured &middot; Professional</div>
-        </div>
-
-        <div class="footer-contact-zone">
-            <span class="contact-label">Client Inquiries & Scheduling</span>
-            <a href="tel:7082708380" class="footer-phone">(708) 270-8380</a>
-            <a href="mailto:Snc@sureonesolutions.com" class="footer-email">Snc@sureonesolutions.com</a>
-        </div>
-
-        <div class="footer-grid">
-            <div class="grid-item grid-item-border">
-                <span class="grid-label">Portfolio & Updates</span>
-                <div class="footer-socials">
-                    <a href="https://facebook.com/YOURPAGE" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/YOURPAGE" target="_blank"><i class="fab fa-instagram"></i></a>
+                <div class="input-group full-width">
+                    <label>Additional Project Details</label>
+                    <textarea rows="6" placeholder="Briefly describe your project needs..."></textarea>
+                </div>
+                
+                <div class="submit-container">
+                    <button class="submit-btn">Submit Request</button>
                 </div>
             </div>
-            <div class="grid-item">
-                <span class="grid-label">Service Area</span>
-                <p class="grid-text">
-                    Chicago &middot; North Shore &middot; Western Suburbs<br>
-                    South Suburbs &middot; Northwest Suburbs
+        </div>
+    </section>
+
+    <footer>
+        <img src="shieldalt_logo.png" class="footer-shield" alt="S1 Logo">
+        <span class="footer-tagline">Licensed • Insured • Professional</span>
+        <span class="footer-inquiry-label">Client Inquiries & Scheduling</span>
+        <a href="tel:7082708380" class="footer-phone sync-title">(708) 270-8380</a>
+        <a href="mailto:Snc@sureonesolutions.com" class="footer-email">Snc@sureonesolutions.com</a>
+
+        <div class="footer-info-grid">
+            <div class="footer-info-col">
+                <span>Portfolio & Updates</span>
+                <div class="footer-social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-floating-divider"></div>
+            <div class="footer-info-col">
+                <span>Service Area</span>
+                <p class="footer-service-list">
+                    <i>Chicago</i> • <i>North Shore</i> • <i>Western Suburbs</i><br>
+                    <i>South Suburbs</i> • <i>Northwest Suburbs</i>
                 </p>
             </div>
         </div>
-        <p style="font-size: 0.7rem; color: #bbb;">&copy; 2026 SureOne Solutions, LLC. All Rights Reserved.</p>
+        <p class="footer-copyright">© 2026 SureOne Solutions, LLC. All Rights Reserved.</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ once: true, duration: 900, offset: 120, easing: 'ease-out-quad' });
-        
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', (e) => {
-            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-            if (!x) return;
-            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-        });
-    </script>
+    <script>AOS.init({ once: true, duration: 1000 });</script>
 </body>
 </html>
