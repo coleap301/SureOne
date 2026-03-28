@@ -30,7 +30,8 @@
             position: fixed;
             top: 0; left: 0; width: 100%;
             height: 60px;
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid #333;
         }
@@ -49,43 +50,34 @@
         .mobile-top-bar a:first-child { border-right: 1px solid #333; }
         .mobile-top-bar i { margin-right: 8px; font-size: 0.9rem; }
 
-        /* --- HERO --- */
+        /* --- HERO & SKYLINE --- */
         .hero-viewport {
             min-height: 100vh;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;     
-            padding: 40px 20px; position: relative;
+            padding: 40px 20px; 
+            position: relative;
+            /* Background Skyline - Moved to the very bottom */
+            background-image: url('image_0.png');
+            background-repeat: no-repeat;
+            background-position: center 99%;
+            background-size: 110% auto;
         }
-        .main-logo { width: 320px; max-width: 85%; margin-bottom: 20px; z-index: 20; }
         
-        .mission-overlay-container { 
-            position: relative; 
-            max-width: 1000px; 
-            width: 100%; 
-            padding: 60px 0; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .hero-viewport::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.85); 
+            z-index: 1;
         }
 
-        .mission-content { position: relative; z-index: 10; width: 100%; }
+        .main-logo { width: 320px; max-width: 85%; margin-bottom: 20px; z-index: 20; position: relative; }
+        .mission-overlay-container { position: relative; max-width: 1000px; width: 100%; padding: 40px 0; z-index: 10; }
+        
         .mission-content h2 { text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: 900; margin-bottom: 25px; color: #000; }
         .mission-content p { font-size: 1.3rem; line-height: 1.8; font-weight: 700; margin-bottom: 20px; color: #000; }
 
-        /* DESKTOP SKYLINE */
-        .skyline-layer {
-            position: absolute; 
-            top: 75%; 
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150%; 
-            z-index: 1; 
-            opacity: 0.12; 
-            pointer-events: none;
-        }
-        .skyline-layer img { width: 100%; height: auto; display: block; }
-
-        /* BUTTONS */
         .btn, .submit-btn {
             background: #000; color: #fff;
             height: 65px; width: 280px; max-width: 100%;
@@ -94,12 +86,13 @@
             display: flex; align-items: center; justify-content: center;
             border: none; cursor: pointer; margin: 20px auto 0;
             font-family: inherit; font-size: 0.9rem;
+            position: relative; z-index: 10;
         }
         .submit-btn { background: #fff; color: #000; }
 
         /* --- UNIFIED FONT SIZE CONTROL --- */
         .sync-title {
-            font-size: 2rem !important;
+            font-size: 2.2rem !important;
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
@@ -163,25 +156,12 @@
             .mobile-top-bar { display: flex; }
             body { padding-top: 60px; }
             
-            /* Enhanced Image Scaling/Cropping for Mobile */
-            .skyline-layer {
-                width: 100vw;
-                height: 40vh;
-                top: auto;
-                bottom: 10%;
-                left: 0;
-                transform: none;
-                opacity: 0.15;
-                overflow: hidden;
-            }
-            .skyline-layer img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* This "cuts off" edges to fit perfectly */
-                object-position: center bottom;
+            .hero-viewport {
+                background-size: cover;
+                background-position: center 99%; /* Max lower anchoring for mobile */
             }
 
-            .sync-title { font-size: 1.6rem !important; } 
+            .sync-title { font-size: 1.8rem !important; } 
             .services-grid { grid-template-columns: 1fr; }
             .form-grid { display: flex; flex-direction: column; gap: 25px; }
             .input-group.full-width { width: 100%; }
@@ -209,7 +189,6 @@
                 <p><strong>Your mess is our mission.</strong></p>
                 <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance throughout Chicago and the greater Chicagoland area. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning—delivering reliable, high-standard solutions for every property mission.</p>
             </div>
-            <div class="skyline-layer"><img src="image_0.png" alt="Chicago Skyline"></div>
         </div>
         <a href="#quote" class="btn">Request a Quote</a>
     </header>
