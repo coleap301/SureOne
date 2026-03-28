@@ -74,8 +74,10 @@
             max-width: 80%; 
             margin-bottom: 40px; 
             z-index: 5;
-            border-radius: 16px; /* Added 16px radius to header logo */
+            border-radius: 16px;
         }
+
+        .mobile-hero-image { display: none; }
         
         .mission-content { 
             max-width: 800px; 
@@ -225,11 +227,39 @@
         }
         .footer-service-list { font-size: 1.1rem; color: #000; line-height: 2.4; font-weight: 700; margin: 0; }
 
-        /* --- MOBILE MEDIA QUERY --- */
+        /* --- MOBILE MEDIA QUERY ADJUSTMENTS --- */
         @media (max-width: 768px) {
-            .hero-viewport { background-size: 180%; padding-top: 120px; }
+            .hero-viewport { 
+                background-image: none; 
+                background-color: var(--pure-white); 
+                padding-top: 100px; 
+            }
+            
+            .main-logo {
+                margin-bottom: 20px; 
+            }
+            
+            .mobile-hero-image {
+                display: block;
+                width: 120%;
+                height: 320px; 
+                background: url('skyline.png') no-repeat center bottom; 
+                /* Reduced background size to 155% for a slightly narrower look */
+                background-size: 155%; 
+                /* Keeps box overlaid on the reflection */
+                margin-bottom: -190px; 
+                position: relative;
+                z-index: 1; 
+            }
+
             .sync-title { font-size: 1.7rem; letter-spacing: 4px; margin-bottom: 40px; }
-            .mission-content { width: 95%; padding: 35px 20px; }
+            .mission-content { 
+                width: 92%; 
+                padding: 40px 25px;
+                position: relative;
+                z-index: 5; 
+            }
+            
             .services-grid { grid-template-columns: 1fr; gap: 15px; }
             
             .form-row { grid-template-columns: 1fr; gap: 20px; }
@@ -271,6 +301,9 @@
 
     <header class="hero-viewport">
         <img src="shield_logo.png" alt="SureOne Solutions" class="main-logo reveal">
+        
+        <div class="mobile-hero-image reveal"></div>
+        
         <div class="mission-content reveal">
             <h2>The SureOne Difference</h2>
             <p>SureOne Solutions, LLC is the premier provider of comprehensive property maintenance throughout Chicago and the greater Chicagoland area. What sets us apart is our commitment to transforming residential and commercial spaces through expert clean-outs, junk removal, and precision cleaning.</p>
