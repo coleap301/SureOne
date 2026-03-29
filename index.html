@@ -16,6 +16,7 @@
             --pure-black: #000000;
             --pure-white: #ffffff;
             --apple-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --section-spacing: 100px;
         }
 
         html { scroll-behavior: smooth; }
@@ -52,9 +53,9 @@
             z-index: 1000;
             border-bottom: 1px solid #222;
             align-items: center;
-            padding: 0 10px; /* Added padding to prevent buttons from hitting screen edges */
+            padding: 0 10px; 
             box-sizing: border-box;
-            gap: 10px; /* Adds space between the three separate elements */
+            gap: 10px; 
         }
         
         .mobile-top-bar a {
@@ -77,19 +78,19 @@
             cursor: pointer;
             letter-spacing: 1px;
             transition: background 0.3s;
-            flex-shrink: 0; /* Ensures the button doesn't squish */
+            flex-shrink: 0; 
         }
-        #lang-toggle:hover { background: #666; }
 
         /* --- HERO --- */
         .hero-viewport {
             min-height: 100vh;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;     
-            padding: 100px 20px;
+            padding: var(--section-spacing) 20px;
             position: relative;
             background: var(--pure-white) url('skyline.png') no-repeat center bottom;
             background-size: contain;
+            box-sizing: border-box;
         }
 
         .main-logo { width: 300px; max-width: 80%; margin-bottom: 40px; z-index: 5; border-radius: 16px; }
@@ -105,20 +106,27 @@
         .mission-content h2 { text-transform: uppercase; letter-spacing: 6px; font-size: 1.1rem; font-weight: 900; margin-bottom: 25px; }
         .mission-content p { font-size: 1.2rem; line-height: 1.6; font-weight: 700; color: #000; margin: 0; }
 
-        /* --- SERVICES --- */
-        .section-solutions { background-color: var(--silhouette-gray); color: var(--pure-white); padding: 100px 20px; }
+        /* --- SERVICES GRID --- */
+        .section-solutions { 
+            background-color: var(--silhouette-gray); 
+            color: var(--pure-white); 
+            padding: var(--section-spacing) 20px; 
+            box-sizing: border-box;
+        }
         .sync-title { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 8px; font-weight: 900; margin-bottom: 60px; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1240px; margin: 0 auto; }
         .service-card { 
             background: #111; padding: 50px 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
             transition: transform 0.4s var(--apple-ease); cursor: pointer; text-align: center; box-sizing: border-box;
         }
-        .service-card:hover { transform: translateY(-10px); background: #1a1a1a; border-color: #fff; }
-        .service-card h3 { text-transform: uppercase; font-size: 1rem; margin-bottom: 12px; font-weight: 800; letter-spacing: 2px; }
-        .service-card p { font-size: 0.85rem; color: #888; line-height: 1.5; margin: 0; }
 
         /* --- QUOTE FORM --- */
-        .section-quote { background-color: var(--pure-black); color: var(--pure-white); padding: 100px 25px; }
+        .section-quote { 
+            background-color: var(--pure-black); 
+            color: var(--pure-white); 
+            padding: var(--section-spacing) 25px; 
+            box-sizing: border-box;
+        }
         .form-container { max-width: 900px; margin: 0 auto; text-align: left; }
         .form-grid { display: flex; flex-direction: column; gap: 30px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -128,53 +136,121 @@
         .checkbox-item input { display: none; }
         .checkbox-tile { background: #111; border: 1px solid #333; padding: 20px 10px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; text-align: center; color: #555; cursor: pointer; transition: 0.3s; border-radius: 16px; }
         .checkbox-item input:checked + .checkbox-tile { background: var(--silhouette-gray); color: #fff; border-color: #666; }
-        .submit-container { display: flex; justify-content: center; width: 100%; }
         .submit-btn { background: var(--silhouette-gray); color: #fff; height: 60px; width: 280px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 3px; margin-top: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; border-radius: 16px; }
 
         /* --- FOOTER --- */
-        footer { background: var(--pure-white); padding: 100px 0; text-align: center; border-top: 1px solid #f0f0f0; }
+        footer { 
+            background: var(--pure-white); 
+            padding: var(--section-spacing) 0; 
+            text-align: center; 
+            border-top: 1px solid #f0f0f0; 
+            box-sizing: border-box;
+        }
         .footer-shield { width: 90px; margin-bottom: 35px; }
-        .footer-tagline { display: block; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; font-size: 0.8rem; color: #000; margin-bottom: 60px; }
-        .footer-header { display: block; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; font-size: 0.8rem; color: #000; margin-bottom: 15px; }
-        .footer-phone { text-decoration: none; color: #000; display: block; margin-bottom: 10px; font-size: 2.4rem; font-weight: 900; letter-spacing: 3px; }
-        .footer-email { text-decoration: none; color: #000; font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 80px; }
-        .footer-info-grid { max-width: 1100px; margin: 0 auto; border-top: 2px solid #000; border-bottom: 2px solid #000; display: flex; align-items: stretch; justify-content: center; }
-        .footer-info-col { flex: 1; padding: 60px 30px; text-align: center; }
-        .footer-info-col span { display: block; font-weight: 900; text-transform: uppercase; font-size: 0.85rem; color: #000; letter-spacing: 4px; margin-bottom: 30px; }
-        .footer-social-links a { color: #000; font-size: 2.2rem; margin: 0 25px; display: inline-block; }
+        .footer-phone { text-decoration: none; color: #000; display: block; margin-bottom: 10px; font-size: 1.5rem; font-weight: 900; letter-spacing: 3px; }
+        
+        .footer-info-grid { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            border-top: 2px dotted #000; 
+            border-bottom: 2px dotted #000; 
+            display: flex; 
+            align-items: stretch; 
+            justify-content: space-evenly; 
+        }
+        .footer-info-col { flex: 1; padding: 60px 30px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
         .footer-floating-divider { width: 2px; border-left: 2px dotted #000; background: none; align-self: stretch; }
-        .footer-service-list { font-size: 1.1rem; color: #000; line-height: 2.4; font-weight: 700; margin: 0; }
 
+        /* --- MOBILE RESPONSIVE (Portrait) --- */
         @media (max-width: 1000px) {
+            :root { --section-spacing: 80px; }
             .hero-viewport { background-image: none; background-color: var(--pure-white); padding-top: 100px; }
             .mobile-hero-image { display: block; width: 120%; height: 320px; background: url('skyline.png') no-repeat center bottom; background-size: 155%; margin-bottom: -190px; position: relative; z-index: 1; }
-            .sync-title { font-size: 1.7rem; letter-spacing: 4px; margin-bottom: 40px; }
-            .mission-content { width: 92%; padding: 40px 25px; position: relative; z-index: 5; }
-            .services-grid { grid-template-columns: 1fr; gap: 15px; }
-            .form-row { grid-template-columns: 1fr; gap: 20px; }
-            .checkbox-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .submit-btn { width: 220px; margin-left: auto; margin-right: auto; }
-            .footer-info-grid { flex-direction: column; width: 100%; border-bottom: 2px solid #000; min-height: 600px; justify-content: space-evenly; }
-            .footer-floating-divider { width: 100%; height: 2px; border: none; background: #000; }
-            .footer-info-col { width: 100%; padding: 30px 20px; box-sizing: border-box; flex: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .checkbox-grid { grid-template-columns: 1fr 1fr; }
+            
+            .footer-info-grid { 
+                flex-direction: column; 
+                width: 100%; 
+                border-bottom: 2px dotted #000; 
+                align-items: center; 
+            }
+            .footer-floating-divider { 
+                width: 100%; 
+                height: 0px; 
+                border: none; 
+                border-bottom: 2px dotted #000; 
+                background: transparent; 
+                align-self: center; 
+                margin: 0;
+            }
+            .footer-info-col { padding: 40px 20px; width: 100%; box-sizing: border-box; }
         }
 
         /* --- MOBILE LANDSCAPE FIX --- */
         @media (max-width: 1000px) and (orientation: landscape), 
                (max-height: 600px) and (orientation: landscape) {
             
-            /* 1. Force hide the mobile skyline image */
-            .mobile-hero-image {
-                display: none !important;
-            }
-            
-            /* 2. Force hide the desktop background skyline image */
+            :root { --section-spacing: 60px; }
+
             .hero-viewport {
                 background-image: none !important;
                 min-height: auto !important;
-                padding-top: 120px !important;
-                padding-bottom: 60px !important;
+                padding-top: 100px !important;
+                padding-bottom: var(--section-spacing) !important;
             }
+
+            .mobile-hero-image {
+                display: block !important;
+                width: 100%;
+                height: 220px; 
+                background: url('skyline.png') no-repeat center center;
+                background-size: 80%; 
+                margin-top: -35px; 
+                margin-bottom: -124px; 
+                position: relative;
+                z-index: 1;
+            }
+
+            .main-logo { width: 220px; margin-bottom: 10px; }
+            .mission-content { width: 95%; padding: 25px; margin-top: 70px; }
+
+            .section-solutions {
+                padding-top: var(--section-spacing) !important;
+                padding-bottom: var(--section-spacing) !important;
+            }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+
+            .form-row { 
+                grid-template-columns: 1fr 1fr !important;
+                display: grid !important;
+                gap: 20px;
+            }
+            .checkbox-grid { 
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+
+            .section-quote, footer {
+                padding-top: var(--section-spacing) !important;
+                padding-bottom: var(--section-spacing) !important;
+            }
+
+            /* Ensuring landscape divider stays vertical */
+            .footer-info-grid { 
+                flex-direction: row !important; 
+                border-bottom: 2px dotted #000 !important; 
+                width: 100%; 
+                justify-content: space-evenly !important; 
+            }
+            .footer-floating-divider { 
+                width: 2px !important; 
+                height: auto !important; 
+                border-left: 2px dotted #000 !important; 
+                border-bottom: none !important; 
+                align-self: stretch !important;
+            }
+            .footer-info-col { padding: 40px 30px !important; width: 45% !important; }
         }
     </style>
 </head>
@@ -257,7 +333,7 @@
                     <textarea style="min-height: 200px;" id="p-details" placeholder="Describe your project..."></textarea>
                 </div>
 
-                <div class="submit-container">
+                <div class="submit-container" style="display: flex; justify-content: center; width: 100%;">
                     <button class="submit-btn" id="f-submit">Submit Request</button>
                 </div>
             </div>
@@ -266,24 +342,24 @@
 
     <footer>
         <img src="shieldalt_logo.png" class="footer-shield" alt="S1 Logo">
-        <span class="footer-tagline" id="f-tagline">Licensed • Insured • Professional</span>
-        <span class="footer-header" id="f-inq">Client Inquiries & Scheduling</span>
+        <span class="footer-tagline" id="f-tagline" style="display: block; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; font-size: 0.8rem; color: #000; margin-bottom: 60px;">Licensed • Insured • Professional</span>
+        <span class="footer-header" id="f-inq" style="display: block; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; font-size: 0.8rem; color: #000; margin-bottom: 15px;">Client Inquiries & Scheduling</span>
         <a href="tel:7082708380" class="footer-phone">(708) 270-8380</a>
-        <a href="mailto:Snc@sureonesolutions.com" class="footer-email">Snc@sureonesolutions.com</a>
+        <a href="mailto:Snc@sureonesolutions.com" class="footer-email" style="text-decoration: none; color: #000; font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 80px;">Snc@sureonesolutions.com</a>
         
         <div class="footer-info-grid reveal">
             <div class="footer-info-col">
-                <span id="f-social">Portfolio & Updates</span>
+                <span id="f-social" style="display: block; font-weight: 900; text-transform: uppercase; font-size: 0.85rem; color: #000; letter-spacing: 4px; margin-bottom: 30px;">Portfolio & Updates</span>
                 <div class="footer-social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #000; font-size: 2.2rem; margin: 0 25px;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: #000; font-size: 2.2rem; margin: 0 25px;"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-floating-divider"></div>
             <div class="footer-info-col">
-                <span id="f-area">Service Area</span>
-                <p class="footer-service-list" id="f-cities">
-                    Chicago <i>•</i> North Shore <i>•</i> Western Suburbs<br>
+                <span id="f-area" style="display: block; font-weight: 900; text-transform: uppercase; font-size: 0.85rem; color: #000; letter-spacing: 4px; margin-bottom: 30px;">Service Area</span>
+                <p class="footer-service-list" id="f-cities" style="font-size: 1.1rem; color: #000; line-height: 2.4; font-weight: 700; margin: 0;">
+                    Chicago <i>•</i> Western Suburbs<br>
                     South Suburbs <i>•</i> Northwest Suburbs
                 </p>
             </div>
@@ -308,7 +384,7 @@
                 lservice: "Service Type", ldetails: "Project Details", fsubmit: "Submit Request",
                 ftagline: "Licensed • Insured • Professional", finq: "Client Inquiries & Scheduling",
                 fsocial: "Portfolio & Updates", farea: "Service Area",
-                fcities: "Chicago <i>•</i> North Shore <i>•</i> Western Suburbs<br>South Suburbs <i>•</i> Northwest Suburbs"
+                fcities: "Chicago <i>•</i> Western Suburbs<br>South Suburbs <i>•</i> Northwest Suburbs"
             },
             es: {
                 toggle: "English", navCall: "Llamar", navQuote: "Cotizar",
@@ -325,7 +401,7 @@
                 lservice: "Tipo de Servicio", ldetails: "Detalles del Proyecto", fsubmit: "Enviar Solicitud",
                 ftagline: "Licenciado • Asegurado • Profesional", finq: "Consultas y Programación",
                 fsocial: "Portafolio y Actualizaciones", farea: "Área de Servicio",
-                fcities: "Chicago <i>•</i> North Shore <i>•</i> Suburbios del Oeste<br>Suburbios del Sur <i>•</i> Suburbios del Noroeste"
+                fcities: "Chicago <i>•</i> Suburbios del Oeste<br>Suburbios del Sur <i>•</i> Suburbios del Noroeste"
             }
         };
 
@@ -343,7 +419,6 @@
             document.getElementById('services-title').innerText = d.servicesTitle;
             document.getElementById('quote-title').innerText = d.quoteTitle;
             
-            // Translate Service Cards
             document.getElementById('s1-t').innerText = d.s1t; document.getElementById('s1-d').innerText = d.s1d;
             document.getElementById('s2-t').innerText = d.s2t; document.getElementById('s2-d').innerText = d.s2d;
             document.getElementById('s3-t').innerText = d.s3t; document.getElementById('s3-d').innerText = d.s3d;
@@ -351,7 +426,6 @@
             document.getElementById('s5-t').innerText = d.s5t; document.getElementById('s5-d').innerText = d.s5d;
             document.getElementById('s6-t').innerText = d.s6t; document.getElementById('s6-d').innerText = d.s6d;
             
-            // Translate Quote Form Selection Tiles
             document.getElementById('tile-full').innerText = d.s1t;
             document.getElementById('tile-junk').innerText = d.s2t;
             document.getElementById('tile-deep').innerText = d.s3t;
@@ -380,10 +454,7 @@
 
         function selectService(name) {
             const cb = document.getElementById('check-' + name);
-            if (cb) {
-                cb.checked = true;
-                document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
-            }
+            if (cb) { cb.checked = true; }
         }
     </script>
 </body>
