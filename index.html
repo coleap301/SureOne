@@ -337,7 +337,10 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="input-group"><label id="l-phone">Phone Number</label><input type="tel" id="p-phone" placeholder="(000) 000-0000"></div>
+                    <div class="input-group">
+                        <label id="l-phone">Phone Number</label>
+                        <input type="tel" id="p-phone" placeholder="(000) 000-0000" oninput="formatPhoneNumber(this)">
+                    </div>
                     <div class="input-group"><label id="l-email">Email Address</label><input type="email" id="p-email" placeholder="Email Address"></div>
                 </div>
 
@@ -506,6 +509,24 @@
             const input = document.getElementById('p-photos');
             input.value = "";
             toggleRemoveBtn();
+        }
+
+        // --- Phone Number Formatting ---
+        function formatPhoneNumber(input) {
+            let digits = input.value.replace(/\D/g, '');
+            if (digits.length > 10) digits = digits.slice(0, 10);
+            
+            let formatted = '';
+            if (digits.length > 0) {
+                formatted = '(' + digits.slice(0, 3);
+                if (digits.length > 3) {
+                    formatted += ') ' + digits.slice(3, 6);
+                    if (digits.length > 6) {
+                        formatted += '-' + digits.slice(6, 10);
+                    }
+                }
+            }
+            input.value = formatted;
         }
     </script>
 </body>
