@@ -17,6 +17,7 @@
             --pure-white: #ffffff;
             --apple-ease: cubic-bezier(0.4, 0, 0.2, 1);
             --section-spacing: 100px;
+            --error-red: #8b0000;
         }
 
         html { scroll-behavior: smooth; }
@@ -136,7 +137,29 @@
         .checkbox-item input { display: none; }
         .checkbox-tile { background: #111; border: 1px solid #333; padding: 20px 10px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; text-align: center; color: #555; cursor: pointer; transition: 0.3s; border-radius: 16px; }
         .checkbox-item input:checked + .checkbox-tile { background: var(--silhouette-gray); color: #fff; border-color: #666; }
-        .submit-btn { background: var(--silhouette-gray); color: #fff; height: 60px; width: 280px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 3px; margin-top: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; border-radius: 16px; }
+        .submit-btn { background: var(--silhouette-gray); color: #fff; height: 60px; width: 280px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 3px; margin-top: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; border-radius: 16px; transition: background 0.3s var(--apple-ease); }
+        
+        /* Styled File Upload */
+        .file-upload-container { display: flex; flex-direction: column; gap: 10px; }
+        .file-controls { display: flex; gap: 15px; align-items: center; }
+        .file-input-styled { flex: 1; padding: 18px; border: 1px dashed #333; background: #111; color: #fff; box-sizing: border-box; font-family: inherit; border-radius: 16px; cursor: pointer; }
+        
+        .remove-btn-styled { 
+            background: var(--error-red); 
+            color: #fff; 
+            border: none; 
+            height: 58px; 
+            padding: 0 25px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            letter-spacing: 2px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.75rem; 
+            border-radius: 16px; 
+            display: none; 
+            transition: opacity 0.3s var(--apple-ease);
+        }
 
         /* --- FOOTER --- */
         footer { 
@@ -169,6 +192,8 @@
             .services-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .checkbox-grid { grid-template-columns: 1fr 1fr; }
+            .file-controls { flex-direction: column; align-items: stretch; }
+            .remove-btn-styled { height: 50px; }
             
             .footer-info-grid { 
                 flex-direction: column; 
@@ -329,6 +354,19 @@
                 </div>
 
                 <div class="input-group">
+                    <label id="l-photos">Upload Photos (Optional)</label>
+                    <div class="file-upload-container">
+                        <div class="file-controls">
+                            <input type="file" id="p-photos" name="photos" accept="image/*" multiple class="file-input-styled" onchange="toggleRemoveBtn()">
+                            <button type="button" id="remove-photos-btn" class="remove-btn-styled" onclick="resetFiles()">Remove</button>
+                        </div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                            Max 5 photos. Individual files cannot exceed 10MB.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="input-group">
                     <label id="l-details">Project Details</label>
                     <textarea style="min-height: 200px;" id="p-details" placeholder="Describe your project..."></textarea>
                 </div>
@@ -455,6 +493,19 @@
         function selectService(name) {
             const cb = document.getElementById('check-' + name);
             if (cb) { cb.checked = true; }
+        }
+
+        // --- Photo Upload Logic ---
+        function toggleRemoveBtn() {
+            const input = document.getElementById('p-photos');
+            const btn = document.getElementById('remove-photos-btn');
+            btn.style.display = input.files.length > 0 ? 'block' : 'none';
+        }
+
+        function resetFiles() {
+            const input = document.getElementById('p-photos');
+            input.value = "";
+            toggleRemoveBtn();
         }
     </script>
 </body>
